@@ -16,6 +16,14 @@ pipeline{
           }
        }
     } 
+    stage("terraform validate"){
+       steps {
+          dir("./gitops"){
+            sh    "/usr/local/bin/terraform validate" 
+          }
+       }
+    }
+   
     stage("terraform plan"){
        steps {
           dir("./gitops"){
